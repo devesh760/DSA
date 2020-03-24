@@ -1,3 +1,4 @@
+//A generic class for simple stack operation in c++
 #include <iostream>
 
 using namespace std;
@@ -34,8 +35,3 @@ public:
     }
 
 };
-
-int main()
-{
-    stack <int ,5>obj1;
-}
