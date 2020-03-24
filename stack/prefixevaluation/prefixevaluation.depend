@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1582554156 source:d:\data-structure\stack\prefixevaluation\main.c
+	<stdio.h>
+	<math.h>
+	<string.h>
+

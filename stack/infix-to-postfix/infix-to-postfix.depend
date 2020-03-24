@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1582605166 source:d:\data-structure\stack\infix-to-postfix\main.cpp
+	<iostream>
+
+1582730989 source:d:\data-structure\stack\infix-to-postfix\in-to-pre.c
+	<stdio.h>
+
