@@ -2,7 +2,7 @@
 #include <iostream>
 
 using namespace std;
-template <class X,int Y>class stack
+template <typename X,int Y>class stack
 {
     X arr[Y];
     int tos;
