@@ -106,29 +106,9 @@ void deleteNode(struct node **head, int data)
     cout << "Node deleted";
   }
 }
-//This doesn't perform deltion, it only breaks the link
-// void del(struct node **p)
-// {
-//   struct node *temp = *p;
-//   temp = temp->next;
-//   temp = temp->next;
-//   (*temp) = *(temp->next);
-// }
-int findmid(struct node *p)
-{
-  int count{};
-  struct node *temp = p;
-  while (temp != NULL)
-  {
-    count++;
-    temp = temp->next;
-  }
-  cout << count;
-  return count;
-}
+
 int main()
 {
-  std::ios_base::sync_with_stdio(false);
   struct node *START = NULL;
   append(&START, 12);
   append(&START, 13);
@@ -137,7 +117,6 @@ int main()
   append(&START, 17);
   append(&START, 18);
   append(&START, 19);
-  findmid(START);
   display(START);
   return 0;
 }
