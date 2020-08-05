@@ -22,8 +22,24 @@ public:
     void appendatLast(int);
     void deleteThisNode(int data);
     void display();
-    struct node* search(struct node **,int);
+    void displayUsingRecursion();
+    struct node *search(int);
 };
+void SinglyLinkedList::displayUsingRecursion()
+{
+    if (start == NULL)
+    {
+        cout << "List is Empty!";
+        return;
+    }
+    static struct node *p =start;
+    if (p!=NULL)
+    {
+        cout << p->data << ' ';
+        p=p->next;
+        displayUsingRecursion();
+    }
+}
 void SinglyLinkedList::appendatLast(int data)
 {
     struct node *p = new struct node(data);
@@ -37,32 +53,42 @@ void SinglyLinkedList::appendatLast(int data)
         temp = temp->next;
     temp->next = p;
 }
-SinglyLinkedList::node* SinglyLinkedList::search(SinglyLinkedList::node **prev,int data)
+SinglyLinkedList::node *SinglyLinkedList::search(int data)
 {
-    struct node *t=start;
-    while(t!=NULL && t->data!=data)
-    {
-     *prev=t;
-     t=t->next;
-    }
+    struct node *t = start;
+    while (t != NULL && t->data != data)
+        t = t->next;
     return t;
 }
 void SinglyLinkedList::deleteThisNode(int data)
 {
+    if (start == NULL)
+    {
+        cout << "Linked list is empty!";
+        return;
+    }
+    if (start->data == data)
+    {
+        start = start->next;
+        delete start;
+        return;
+    }
+    struct node *temp = start;
     struct node *prev;
-    struct node *node_to_be_deleted = search(&prev,data);
-    if(node_to_be_deleted == NULL)
+    while (temp != NULL && temp->data != data)
     {
-        cout <<"List Is Empty!";
+        prev = temp;
+        temp = temp->next;
     }
-    else if(node_to_be_deleted->next == NULL)
+    if (temp == NULL)
     {
-        
+        cout << "Node not found!";
     }
-    else{
-
+    else
+    {
+        prev->next = temp->next;
+        delete temp;
     }
-
 }
 void SinglyLinkedList::display()
 {
@@ -84,7 +110,7 @@ int main()
     list.appendatLast(13);
     list.appendatLast(14);
     list.appendatLast(15);
-    list.deleteAtLast();
-    list.display();
+    list.deleteThisNode(15);
+    list.displayUsingRecursion();
     return 0;
 }
