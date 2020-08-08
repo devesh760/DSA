@@ -1,3 +1,8 @@
+/*******
+Binary search Tree postorder,inorder,preorder,search,creation,deletetion in c 
+Iterative Code                        ******/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 struct Bst
