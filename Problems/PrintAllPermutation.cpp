@@ -15,6 +15,7 @@ int printAllPermutation(string str, int i, int n)
         {
             swap(str[i], str[j]);
             printAllPermutation(str, i + 1, n);
+            swap(str[i],str[j]);
         }
     }
     return c;
