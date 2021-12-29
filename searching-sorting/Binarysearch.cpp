@@ -19,23 +19,16 @@ int binary_search(int arr[], int size, int num)
     }
     return -1;
 }
-int binary_search_using_recursion(int arr[], int size, int num)
-{
-    static int lower = 0, upper = size - 1, mid;
-    if (lower <= upper)
-    {
-        mid = (lower + upper) / 2;
-        if (arr[mid] == num)
-            return mid;
-        else if (arr[mid] < num)
-            lower = mid + 1;
-        else
-            upper = mid - 1;
-        return binary_search_using_recursion(arr, size, num);
-    }
+int binary_search_recursive(int arr[],int low,int high,int num){
+    int mid = (low+high)/2;
+    if(arr[mid]==num)
+        return mid;
+    else if(arr[mid]>num)
+        return binary_search_recursive(arr,low,mid,num);
     else
-        return -1;
+        return binary_search_recursive(arr,mid+1,high,num);
 }
+
 int main()
 {
     int arr[] = {1, 2, 3, 4, 5, 6, 7};
