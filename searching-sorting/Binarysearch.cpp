@@ -19,14 +19,17 @@ int binary_search(int arr[], int size, int num)
     }
     return -1;
 }
+
 int binary_search_recursive(int arr[],int low,int high,int num){
-    int mid = (low+high)/2;
+    if(low>high)
+      return -1;
+    int mid = low + (high-low)/2;
     if(arr[mid]==num)
-        return mid;
+      return mid;
     else if(arr[mid]>num)
-        return binary_search_recursive(arr,low,mid,num);
+      return binary_search_recursive(arr,low,mid-1,num);
     else
-        return binary_search_recursive(arr,mid+1,high,num);
+      return binary_search_recursive(arr,mid+1,high,num);
 }
 
 int main()
